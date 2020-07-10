@@ -18,8 +18,8 @@ jobs:
           auto-activate-base: false
           miniconda-version: 'latest'
           python-version: ${{ matrix.python-version }}
-          environment-file: environment.yml
-          activate-environment: jupytext-dev
+          environment-file: githubActionsEnv.yml
+          activate-environment: githubActionsEnv
       - name: Conda list
         shell: pwsh
         run: conda list
