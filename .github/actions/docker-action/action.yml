@@ -1,0 +1,18 @@
+# action.yml - https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
+name: 'Hello World' # name of action (Required)
+description: 'Greet someone and record the time' # description (Required)
+# declare inputs to the Docker container.  Represented as environment variables
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+# declare outputs from the Docker container
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}

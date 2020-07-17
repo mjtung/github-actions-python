@@ -10,9 +10,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 # checkout action to checkout code
       - name: Setup Miniconda
-        uses: goanpeca/setup-miniconda@v1
+        uses: goanpeca/setup-miniconda@v1 # action referencing someone else's repo's action
         with:
           auto-update-conda: true
           auto-activate-base: false
@@ -31,3 +31,6 @@ jobs:
           } else {
              pytest --cov=./ --cov-report=xml
           }
+      - name: Make Docker image
+        # referencing directory that contains the action
+        uses: ./.github/actions/docker-action
