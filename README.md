@@ -6,6 +6,9 @@ A very simple proof of concept, that uses Github Actions to perform workflows af
 2. Install packages
 3. Run tests
 
+## Workflow definition
+Look in [.github/workflows/continuous-integration-conda.yml](.github/workflows/continuous-integration-conda.yml)
+
 ## Github - Docker link
 
 ### Dockerfile
