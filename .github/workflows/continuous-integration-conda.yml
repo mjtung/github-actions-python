@@ -31,6 +31,21 @@ jobs:
           } else {
              pytest --cov=./ --cov-report=xml
           }
-      - name: Make Docker image
-        # referencing directory that contains the action
-        uses: ./.github/actions/docker-action
+      # - name: Make Docker image
+      #   # referencing directory that contains the action
+      #   uses: ./.github/actions/docker-action
+  push_docker_to_registry:
+    name: Push image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          # See Github secrets: https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
+          username: ${{ secrets.MJ_DOCKER_USERNAME }}
+          password: ${{ secrets.MJ_DOCKER_PASSWORD }}
+          repository: mjtung/docker-registry-test
+          tag_with_ref: true
+
