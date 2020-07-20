@@ -25,3 +25,12 @@ https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-a
 One way to distribute / deploy applications is to run them in Docker containers.  Docker containers rely on Docker images: https://docs.docker.com/docker-hub/official_images/.
 
 One can rely on Docker Inc. to update the security of such images, if one uses official images.  See link above.
+
+Build image
+```
+docker build -t githubactions .
+```
+Run image
+```
+docker run -it --name <name> githubactions
+```

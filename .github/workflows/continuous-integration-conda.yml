@@ -18,7 +18,7 @@ jobs:
           auto-activate-base: false
           miniconda-version: 'latest'
           python-version: ${{ matrix.python-version }}
-          environment-file: githubActionsEnv.yml
+          environment-file: githubActionsEnv-winos.yml
           activate-environment: githubActionsEnv
       - name: Conda list
         shell: pwsh
